@@ -1,0 +1,28 @@
+ * PUBLISH TOPIC:
+	"KIMKHI3P/SENSOR/DATA/(TB1, TB2, TB3)" 	: nhiệt độ bo/nhiệt độ cảm biến/độ ấm cảm biến
+	"KIMKHI3P/SENSOR/RD/(TB1, TB2, TB3)"   	: random (100 - 999)
+	"KIMKHI3P/SENSOR/ALARM/(TB1, TB2, TB3)"	: số lần reset/chế độ cảnh báo/thời gian gửi giá trị cảm biến (giây)/thời gian gửi giá trị random/ngưỡng nhiệt độ cảnh báo trên bo/ngưỡng nhiệt độ cảnh báo cảm biến/ngưỡng độ ẩm cảnh báo cảm biến
+
+* SUBSCRIBE TOPIC:
+	"KIMKHI3P/SENSOR"				: Gửi truy vấn cho tất cả thiết bị [kí tự bất kì], trả về giá trị random, data và các giá trị đã cài đặt.
+	"KIMKHI3P/SENSOR/SETUP/TIME/(TB1, TB2, TB3)"	: setup thời gian cập nhật lên MQTT (giây) với định dạng: [thời gian cập nhật cảm biến]:[thời gian cập nhật random]
+	"KIMKHI3P/SENSOR/SETUP/ALARM/(TB1, TB2, TB3)"	: setup ngưỡng cảnh báo với định dạng: [ngưỡng nhiệt độ bo]:[ngưỡng nhiệt độ cảm biến]:[độ ẩm cảm biến]
+	"KIMKHI3P/SENSOR/SETUP/MODE/(TB1, TB2, TB3)"	: setup chế độ cảnh báo: [mode] 
+								với mode = (0, 1, 2, 3)
+									0: không cảnh báo
+									1: chỉ cảnh báo khi giá trị nhiệt độ cảm biến vượt ngưỡng
+									2: chỉ cảnh báo khi giá trị độ ẩm cảm biến vượt ngưỡng
+									3: cảnh báo cả nhieetj độ và độ ẩm khi 1 trong 2 giá trị vượt ngưỡng.
+
+Ví dụ:
+
+Cài đặt ngưỡng cảnh báo thiết bị 1 với nhiệt độ bo là 40, nhiệt độ cảm biến là 45, độ ẩm cảm biến là 90:
+	* TOPIC:	"KIMKHI3P/SENSOR/SETUP/ALARM/TB1":	40:45:90
+
+Cài đặt chế độ cảnh báo thiết bị 1 ở chế độ 1:
+	* TOPIC:	"KIMKHI3P/SENSOR/SETUP/MODE/TB1":	1
+
+Cài đặt thời gian hẹn giờ thiết bị 1, với thời gian gửi cảm biến là 30s, thờ gian gửi random là 10s: 
+	* TOPIC:	"KIMKHI3P/SENSOR/SETUP/TIME/TB1":	30:10
+
+							

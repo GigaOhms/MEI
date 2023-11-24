@@ -1,0 +1,14 @@
+Bộ 1: 0-1-a
+Bộ 2: 2-3-b
+Bộ 3: 4-5-c
+Bộ 4: 6-7-d
+bộ 5: 8-9-e
+Bộ 6: f-g-h
+Bộ 7: i-j-k
+Bộ 8: l-m-n
+Bộ 9: o-p-q
+Bộ 10:r-s-t
+
+kí tự đầu tiên là lệnh Forward
+kí tự thứ hai là lệnh  Backward
+kí tự cuối cùng là lệnh STOP
